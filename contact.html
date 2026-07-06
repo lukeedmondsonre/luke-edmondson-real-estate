@@ -135,10 +135,11 @@
         <h3>Send Luke a Message</h3>
         <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="06bcaf6f-7e19-42f8-b6fe-9dd67bd0ec35">
-          <input type="hidden" name="subject" value="New Contact Form Submission, Luke Edmondson Real Estate">
+          <input type="hidden" name="subject" value="New Contact Form Submission — Luke Edmondson Real Estate">
           <input type="hidden" name="from_name" value="Luke Edmondson Real Estate">
           <input type="hidden" name="redirect" value="false">
           <input type="hidden" name="form-source" value="Contact Page">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1">
           <div class="form-row">
             <div class="form-group">
               <label for="c-name">Full Name *</label>
@@ -174,7 +175,7 @@
             <textarea id="c-message" name="message" placeholder="Tell Luke a little about what you're looking for..."></textarea>
           </div>
           <button type="submit" class="btn btn-red" style="width:100%">Send Message to Luke</button>
-          <div id="form-success" class="form-success">✓ Thank you! Luke will be in touch within 24 hours.</div>
+          <div id="form-success" class="form-success">✓ Thank you! Luke received your message and will be in touch soon.</div>
         </form>
       </div>
     </div>
