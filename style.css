@@ -717,6 +717,8 @@ html.js-enabled .fade-up.visible { opacity: 1; transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) { html.js-enabled .fade-up { opacity: 1 !important; transform: none !important; } }
 
 /* ============ RESPONSIVE ============ */
+
+/* ---- Tablet (1100px) ---- */
 @media (max-width: 1100px) {
   .about-split { grid-template-columns: 1fr; }
   .about-photo-wrap { max-width: 380px; margin-bottom: 3rem; }
@@ -724,37 +726,126 @@ html.js-enabled .fade-up.visible { opacity: 1; transform: translateY(0); }
   .contact-grid { grid-template-columns: 1fr; }
   .pullquotes { grid-template-columns: 1fr; }
   .area-detail-grid { grid-template-columns: 1fr; }
+  .area-sidebar { position: static; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .credential-strip-inner { grid-template-columns: repeat(2, 1fr); }
   .county-nav { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ---- Mobile (768px) ---- */
 @media (max-width: 768px) {
+  /* Prevent horizontal overflow globally */
+  html, body { overflow-x: hidden; }
+  iframe, embed, object { max-width: 100%; }
+
   :root { --section-pad: 60px; }
+
+  /* Reduce container padding */
+  .container, .container-narrow { padding: 0 1.25rem; }
+
+  /* Navigation */
+  .nav-inner { padding: 0 1.25rem; height: 68px; }
+  .mobile-menu { padding: 1.5rem 1.25rem; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
+
+  /* Page heroes */
+  .page-hero { padding: 105px 0 48px; }
+  .area-page-hero { padding: 110px 0 50px; }
+
+  /* Section header */
+  .section-header { margin-bottom: 2.5rem; }
+
+  /* Credentials */
+  .credential-item { padding: 2rem 1rem; }
+
+  /* Values */
   .values-grid { grid-template-columns: 1fr; }
   .value-item { border-right: none; border-bottom: 1px solid rgba(196,160,53,0.1); }
+
+  /* Communities */
   .communities-grid { grid-template-columns: 1fr; }
-  .reviews-grid { grid-template-columns: 1fr; }
+
+  /* Gallery */
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .gallery-item.wide { grid-column: span 1; }
+
+  /* Why / Process */
   .why-grid { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
+
+  /* Valuation */
   .valuation-grid { grid-template-columns: 1fr; }
-  .valuation-left { padding: 50px 30px; border-right: none; border-bottom: 1px solid rgba(196,160,53,0.1); }
-  .valuation-right { padding: 50px 30px; }
+  .valuation-left { padding: 50px 1.5rem; border-right: none; border-bottom: 1px solid rgba(196,160,53,0.1); }
+  .valuation-right { padding: 50px 1.5rem; }
+
+  /* Areas page */
   .featured-areas-grid { grid-template-columns: 1fr; }
   .county-nav { grid-template-columns: 1fr; }
+  .community-item { flex-direction: column; gap: 0.75rem; padding: 1.5rem 1.25rem; }
+
+  /* Reviews */
+  .reviews-grid { grid-template-columns: 1fr; }
   .rating-summary { grid-template-columns: 1fr; }
+  .rating-highlights { flex-wrap: wrap; gap: 1.5rem; }
+
+  /* Contact form */
+  .contact-form { padding: 1.75rem 1.25rem; }
+
+  /* Footer */
   .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { padding: 1.4rem 1.25rem; }
+
+  /* Float / sticky */
   .float-call { display: flex; }
   .sticky-bar { display: none !important; }
+
+  /* Forms */
   .form-row { grid-template-columns: 1fr; }
+
+  /* Hero actions */
   .hero-actions { flex-direction: column; align-items: center; }
   .about-kw-badge { right: 0; bottom: -16px; }
 }
+
+/* ---- Small phones (480px) ---- */
 @media (max-width: 480px) {
-  .credential-strip-inner { grid-template-columns: 1fr 1fr; }
+  :root { --section-pad: 48px; }
+
+  .container, .container-narrow { padding: 0 1rem; }
+  .nav-inner { padding: 0 1rem; }
+  .mobile-menu { padding: 1.25rem 1rem; }
+
+  /* Credential strip: single column */
+  .credential-strip-inner { grid-template-columns: 1fr; }
+  .credential-item { border-right: none; border-bottom: 1px solid rgba(196,160,53,0.1); }
+  .credential-item:last-child { border-bottom: none; }
+
+  /* Gallery: single column */
   .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item.wide, .gallery-item.tall { grid-column: span 1; grid-row: span 1; }
+
+  /* Process: single column */
   .process-steps { grid-template-columns: 1fr; }
+
+  /* Tighten card padding */
+  .pullquote { padding: 2.5rem 1.25rem; }
+  .value-item { padding: 2rem 1.25rem; }
+  .why-card { padding: 2rem 1.25rem; }
+  .leave-review-box { padding: 2.5rem 1.25rem; }
+  .review-card { padding: 1.5rem 1.25rem; }
+
+  /* Photo frame decorative border overflows on very small screens — hide it */
+  .about-photo-frame { display: none; }
+  .about-kw-badge { right: -8px; bottom: -12px; min-width: 110px; padding: 1rem 1rem; }
+  .about-kw-badge strong { font-size: 1.8rem; }
+
+  /* Buttons full-width on small phones */
+  .hero-actions .btn { width: 100%; max-width: 280px; }
+  .area-page-hero .hero-buttons { flex-direction: column; }
+  .area-page-hero .hero-buttons .btn { width: 100%; text-align: center; }
+  .cta-band .btn-group { flex-direction: column; align-items: center; }
+  .cta-band .btn-group .btn,
+  .cta-band .btn-group .btn-white,
+  .cta-band .btn-group .btn-outline-white { width: 100%; max-width: 280px; }
 }
