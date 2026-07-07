@@ -168,6 +168,55 @@ footer{background:rgba(10,8,5,1);padding:70px 0 0;border-top:1px solid rgba(196,
 .fb2{max-width:1200px;margin:0 auto;padding:1.4rem 2.5rem;text-align:center;border-top:1px solid rgba(196,160,53,.1)}
 .kwd{font-family:'Oswald',sans-serif;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(196,160,53,.42);padding:.4rem 0;display:block}
 .leg{font-size:.78rem;color:rgba(239,230,213,.22)}
+
+/* HAMBURGER + MOBILE MENU */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--cr);transition:.3s}
+.mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;background:var(--bg);border-top:1px solid rgba(196,160,53,.15);padding:1.5rem 1.25rem;z-index:999}
+.mobile-menu.open{display:flex;flex-direction:column;gap:1rem}
+.mobile-menu a{font-family:'Oswald',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(239,230,213,.6);font-size:.82rem;padding:.6rem 0;border-bottom:1px solid rgba(196,160,53,.08);transition:color .2s}
+.mobile-menu a:hover{color:var(--gd)}
+
+/* RESPONSIVE — 768px */
+@media(max-width:768px){
+  html,body{overflow-x:hidden}
+  iframe,embed,object{max-width:100%}
+  .con{padding:0 1.25rem}
+  .ni{padding:0 1.25rem}
+  .nl{display:none}
+  .hamburger{display:flex}
+  .page-hero{padding:90px 0 50px}
+  .sec{padding:60px 0}
+  .ramsey-sec{padding:60px 0}
+  .about-cta{padding:60px 0}
+  .sh{margin-bottom:2.5rem}
+  .intro-grid{grid-template-columns:1fr;gap:2.5rem}
+  .intro-photo{max-width:340px;margin:0 auto}
+  .intro-photo-frame{display:none}
+  .kw-badge-sm{right:0;bottom:-14px}
+  .sbi{grid-template-columns:1fr 1fr}
+  .sb{padding:2rem 1rem}
+  .ramsey-grid{grid-template-columns:1fr;gap:2.5rem}
+  .vg{grid-template-columns:1fr}
+  .vi{border-right:none;border-bottom:1px solid rgba(196,160,53,.08)}
+  .vi:last-child{border-bottom:none}
+  .personal-grid{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr}
+  .fb2{padding:1.4rem 1.25rem}
+}
+
+/* RESPONSIVE — 480px */
+@media(max-width:480px){
+  .con{padding:0 1rem}
+  .ni{padding:0 1rem}
+  .sbi{grid-template-columns:1fr 1fr}
+  .sb{padding:1.6rem .75rem}
+  .ramsey-shield-box{flex-direction:column}
+  .vi{padding:2rem 1.25rem}
+  .pc{padding:2rem 1.25rem}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cta-btns .btn{width:100%;max-width:280px;text-align:center}
+}
 </style></head>
 <body>
 
@@ -180,8 +229,18 @@ footer{background:rgba(10,8,5,1);padding:70px 0 0;border-top:1px solid rgba(196,
       <a href="buy.html">Buy</a><a href="sell.html">Sell</a><a href="areas.html">Areas</a><a href="reviews.html">Reviews</a>
       <a href="contact.html" class="nc btn">Contact Luke</a>
     </div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html" style="color:var(--gd)">About Luke</a>
+  <a href="buy.html">Buy</a>
+  <a href="sell.html">Sell</a>
+  <a href="areas.html">Areas</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="contact.html">Contact Luke</a>
+</div>
 
 <!-- PAGE HERO, editorial pull quote, NOT the same as homepage -->
 <section class="page-hero">
