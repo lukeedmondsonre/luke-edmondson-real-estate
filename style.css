@@ -13,7 +13,7 @@
   --bg-hover:   #2C2213;
 
   --cream:      #EFE6D5;   /* primary text on dark */
-  --cream-dim:  rgba(239,230,213,0.55);  /* secondary text */
+  --cream-dim:  rgba(239,230,213,0.82);  /* secondary text */
   --cream-faint:rgba(239,230,213,0.28);  /* tertiary / borders */
 
   --gold:       #C4A035;   /* harvest gold — primary accent */
