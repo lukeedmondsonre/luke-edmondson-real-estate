@@ -682,7 +682,7 @@ nav.scrolled {
 /* ============ FOOTER ============ */
 footer {
   background: var(--bg-deep); color: var(--cream-dim);
-  padding: 70px 0 0; border-top: var(--gold-rule);
+  padding: 70px 0 70px; border-top: var(--gold-rule);
 }
 .footer-grid { display: grid; grid-template-columns: 300px 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
 .footer-brand img { height: 50px; margin-bottom: 1rem; }
