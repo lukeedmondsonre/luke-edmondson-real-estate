@@ -337,12 +337,10 @@ nav.scrolled {
 }
 .about-kw-badge {
   position: absolute; bottom: -24px; right: -24px;
-  background: var(--wine);
-  color: var(--cream);
-  padding: 1.2rem 1.5rem; text-align: center; min-width: 130px;
+  background: white;
+  padding: 0.6rem; text-align: center; min-width: 130px;
 }
-.about-kw-badge strong { font-family: var(--font-display); font-size: 2.2rem; display: block; line-height: 1; }
-.about-kw-badge span  { font-family: var(--font-label); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85; }
+.about-kw-badge img { width: 110px; height: auto; display: block; }
 .about-text .label { display: block; margin-bottom: 1rem; }
 .about-text h2 { color: var(--cream); margin-bottom: 1.2rem; }
 .about-text p { color: var(--cream-dim); line-height: 1.85; margin-bottom: 1rem; font-size: 1rem; }
