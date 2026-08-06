@@ -183,4 +183,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+  // ============ LEAD CAPTURE BLOCKS (.lc-form) ============
+  document.querySelectorAll('.lc-form').forEach(function (form) {
+
+    // --- multi-step ladder ---
+    var steps = form.querySelectorAll('.lc-step');
+    var bar = form.parentNode.querySelector('.lc-prog i');
+
+    function showStep(n) {
+      steps.forEach(function (s) { s.classList.remove('lc-on'); });
+      var target = form.querySelector('.lc-step[data-step="' + n + '"]');
+      if (target) target.classList.add('lc-on');
+      if (bar) bar.style.width = (n / steps.length * 100) + '%';
+    }
+
+    form.querySelectorAll('.lc-pill').forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        var group = pill.parentNode.querySelectorAll('.lc-pill');
+        group.forEach(function (p) { p.setAttribute('aria-pressed', 'false'); });
+        pill.setAttribute('aria-pressed', 'true');
+        var hidden = form.querySelector('input[name="' + pill.dataset.field + '"]');
+        if (hidden) hidden.value = pill.dataset.value;
+        var cur = parseInt(pill.closest('.lc-step').dataset.step, 10);
+        showStep(cur + 1);
+      });
+    });
+
+    form.querySelectorAll('.lc-back').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var cur = parseInt(b.closest('.lc-step').dataset.step, 10);
+        showStep(Math.max(1, cur - 1));
+      });
+    });
+
+    // --- submit ---
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var orig = btn ? btn.textContent : '';
+      if (btn) { btn.textContent = 'Sending...'; btn.disabled = true; }
+      try {
+        var res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          var ok = form.querySelector('.lc-ok');
+          if (ok) ok.classList.add('lc-show');
+          form.reset();
+          form.querySelectorAll('.lc-step').forEach(function (s) { s.style.display = 'none'; });
+          if (btn) btn.textContent = '✓ Sent';
+        } else {
+          if (btn) { btn.textContent = orig; btn.disabled = false; }
+          alert('There was a problem sending that. Please call Luke directly at (530) 966-4921.');
+        }
+      } catch (err) {
+        if (btn) { btn.textContent = orig; btn.disabled = false; }
+        alert('There was a problem sending that. Please call Luke directly at (530) 966-4921.');
+      }
+    });
+  });
+
 });

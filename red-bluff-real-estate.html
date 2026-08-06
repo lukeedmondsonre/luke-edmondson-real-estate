@@ -114,7 +114,41 @@
   <h2>Red Bluff's Distinct Appeal</h2>
   <p>What makes Red Bluff genuinely interesting as a real estate market is the combination of affordability and authentic character. The Sacramento River, the historic downtown, the rodeo tradition, and the community infrastructure of a county seat create a livable environment that goes well beyond what the price tag might suggest. For buyers looking at the North State who haven't looked seriously at Red Bluff, it's worth a closer look.</p>
 
-  <div class="blog-cta">
+  
+<!-- ======== LEAD CAPTURE: HOME VALUATION / COMPS ======== -->
+<section class="lc-wrap">
+  <div class="container">
+    <div class="lc-card lc-comps">
+      <h3>What's your Red Bluff property worth today?</h3>
+      <p class="lc-sub">Not an automated estimate. I pull the actual comparable sales for your street and send you a short written read on what your home would realistically bring in this market.</p>
+      <form class="lc-form" id="cmp-red-bluff-real-estate" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="06bcaf6f-7e19-42f8-b6fe-9dd67bd0ec35">
+      <input type="hidden" name="subject" value="Home valuation request — Red Bluff">
+      <input type="hidden" name="from_name" value="Luke Edmondson Real Estate">
+      <input type="hidden" name="redirect" value="false">
+      <input type="hidden" name="form-source" value="Home Valuation Request — Red Bluff">
+      <input type="hidden" name="city" value="Red Bluff">
+        <input type="hidden" name="interest" value="Valuation">
+        <div class="lc-fg">
+          <label for="cmp-red-bluff-real-estate-a">Property address</label>
+          <input type="text" id="cmp-red-bluff-real-estate-a" name="address" required autocomplete="street-address" placeholder="Street address, Red Bluff, CA">
+        </div>
+        <div class="lc-row">
+          <div class="lc-fg"><label for="cmp-red-bluff-real-estate-n">First name</label>
+            <input type="text" id="cmp-red-bluff-real-estate-n" name="name" required autocomplete="given-name" placeholder="First name"></div>
+          <div class="lc-fg"><label for="cmp-red-bluff-real-estate-e">Email</label>
+            <input type="email" id="cmp-red-bluff-real-estate-e" name="email" required autocomplete="email" placeholder="your@email.com"></div>
+        </div>
+        <button type="submit" class="btn btn-red lc-btn">Send Me the Comps</button>
+        <p class="lc-micro">Free and no obligation. You won't be added to a drip campaign you didn't ask for.</p>
+        <p class="lc-consent">By submitting, you consent to being contacted by Luke Edmondson at Keller Williams Realty by phone, text, or email at the information provided. Consent is not a condition of service. Message and data rates may apply. <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        <div class="lc-ok">&#10003; Received — Luke pulls these by hand and will send yours over.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="blog-cta">
     <h3>Buying or Selling in Red Bluff?</h3>
     <p>Luke serves buyers and sellers throughout Tehama County including Red Bluff. Let's have an honest conversation about your goals.</p>
     <a href="contact.html" class="btn btn-outline-white" style="display:inline-block;margin-right:1rem;">Send a Message</a>
@@ -132,7 +166,66 @@
     </ul>
   </div>
 
-    <div class="blog-author">
+    
+<!-- ======== LEAD CAPTURE: MICRO-COMMITMENT LADDER ======== -->
+<section class="lc-wrap">
+  <div class="container">
+    <div class="lc-card lc-ladder">
+      <div class="lc-prog"><i></i></div>
+      <form class="lc-form" id="lad-red-bluff-real-estate" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="06bcaf6f-7e19-42f8-b6fe-9dd67bd0ec35">
+      <input type="hidden" name="subject" value="Guided form lead — Red Bluff">
+      <input type="hidden" name="from_name" value="Luke Edmondson Real Estate">
+      <input type="hidden" name="redirect" value="false">
+      <input type="hidden" name="form-source" value="Guided Form — Red Bluff">
+      <input type="hidden" name="city" value="Red Bluff">
+        <input type="hidden" name="interest" value="">
+        <input type="hidden" name="timeline" value="">
+
+        <div class="lc-step lc-on" data-step="1">
+          <h3>What brings you to Red Bluff?</h3>
+          <div class="lc-pills">
+            <button type="button" class="lc-pill" data-field="interest" data-value="Buying">Looking to buy</button>
+            <button type="button" class="lc-pill" data-field="interest" data-value="Selling">Thinking of selling</button>
+            <button type="button" class="lc-pill" data-field="interest" data-value="Researching">Just researching</button>
+          </div>
+          <p class="lc-micro lc-left">One tap. Nothing to fill out yet.</p>
+        </div>
+
+        <div class="lc-step" data-step="2">
+          <h3>What's your timeline?</h3>
+          <div class="lc-pills">
+            <button type="button" class="lc-pill" data-field="timeline" data-value="Next 30 days">Next 30 days</button>
+            <button type="button" class="lc-pill" data-field="timeline" data-value="2-6 months">2&ndash;6 months</button>
+            <button type="button" class="lc-pill" data-field="timeline" data-value="Just watching">Just watching</button>
+          </div>
+          <button type="button" class="lc-back">&larr; Back</button>
+        </div>
+
+        <div class="lc-step" data-step="3">
+          <h3>Where do I send what I find?</h3>
+          <p class="lc-sub">I'll send Red Bluff listings that match what you picked, plus a note on what's actually moving out there.</p>
+          <div class="lc-row">
+            <div class="lc-fg"><label for="lad-red-bluff-real-estate-n">First name</label>
+              <input type="text" id="lad-red-bluff-real-estate-n" name="name" required autocomplete="given-name" placeholder="First name"></div>
+            <div class="lc-fg"><label for="lad-red-bluff-real-estate-e">Email</label>
+              <input type="email" id="lad-red-bluff-real-estate-e" name="email" required autocomplete="email" placeholder="your@email.com"></div>
+          </div>
+          <div class="lc-fg"><label for="lad-red-bluff-real-estate-p">Phone <span class="lc-opt">(optional)</span></label>
+            <input type="tel" id="lad-red-bluff-real-estate-p" name="phone" autocomplete="tel" placeholder="(530) 000-0000"></div>
+          <button type="submit" class="btn btn-red lc-btn">Send It Over</button>
+          <p class="lc-micro">Add a phone number only if you'd rather Luke call.</p>
+          <p class="lc-consent">By submitting, you consent to being contacted by Luke Edmondson at Keller Williams Realty by phone, text, or email at the information provided. Consent is not a condition of service. Message and data rates may apply. <a href="privacy-policy.html">Privacy Policy</a>.</p>
+          <button type="button" class="lc-back">&larr; Back</button>
+        </div>
+
+        <div class="lc-ok">&#10003; Done — Luke has what he needs and will follow up by email.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="blog-author">
     <img src="images/headshot.png" alt="Luke Edmondson Realtor Northern California">
     <div class="blog-author-text">
       <h4>Luke Edmondson — Realtor, Keller Williams Realty Chico Area</h4>
@@ -140,6 +233,37 @@
     </div>
   </div>
 </div>
+
+
+<!-- ======== LEAD CAPTURE: QUESTION BOX ======== -->
+<section class="lc-wrap">
+  <div class="container">
+    <div class="lc-card lc-ask">
+      <h3>Have a question about Red Bluff?</h3>
+      <p class="lc-sub">Ask me anything — what's actually on the market, pricing, timing, financing. I answer these personally, and you'll get a real answer, not a pitch.</p>
+      <form class="lc-form" id="ask-red-bluff-real-estate" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="06bcaf6f-7e19-42f8-b6fe-9dd67bd0ec35">
+      <input type="hidden" name="subject" value="Website question — Red Bluff">
+      <input type="hidden" name="from_name" value="Luke Edmondson Real Estate">
+      <input type="hidden" name="redirect" value="false">
+      <input type="hidden" name="form-source" value="Question Box — Red Bluff">
+      <input type="hidden" name="city" value="Red Bluff">
+        <div class="lc-fg">
+          <label for="ask-red-bluff-real-estate-q">Your question</label>
+          <textarea id="ask-red-bluff-real-estate-q" name="message" rows="3" required placeholder="e.g. What's available in Red Bluff right now under $400k?"></textarea>
+        </div>
+        <div class="lc-fg">
+          <label for="ask-red-bluff-real-estate-e">Where should I send the answer?</label>
+          <input type="email" id="ask-red-bluff-real-estate-e" name="email" required autocomplete="email" placeholder="your@email.com">
+        </div>
+        <button type="submit" class="btn btn-red lc-btn">Send My Question</button>
+        <p class="lc-micro">No phone number required — I'll reply by email.</p>
+        <p class="lc-consent">By submitting, you consent to being contacted by Luke Edmondson at Keller Williams Realty by phone, text, or email at the information provided. Consent is not a condition of service. Message and data rates may apply. <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        <div class="lc-ok">&#10003; Got it — your question is in Luke's hands and he'll reply to that address.</div>
+      </form>
+    </div>
+  </div>
+</section>
 
 <section class="section" style="background:#0a0805;padding:3rem 0;">
   <div class="container">
@@ -149,6 +273,32 @@
     </div>
     <div class="other-areas" style="margin-top:1.5rem;">
       <a href="red-bluff-realtor.html" class="other-area-link">Red Bluff Realtor Page</a><a href="corning-realtor.html" class="other-area-link">Corning Real Estate</a><a href="corning-real-estate.html" class="other-area-link">Corning Market Guide</a><a href="anderson-realtor.html" class="other-area-link">Anderson Real Estate</a><a href="sell.html" class="other-area-link">Get Free Valuation</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======== LEAD CAPTURE: LISTING ALERTS ======== -->
+<section class="lc-alerts-band">
+  <div class="container">
+    <div class="lc-alerts-inner">
+      <div class="lc-alerts-copy">
+        <h3>Not ready to talk yet?</h3>
+        <p>Get new Red Bluff listings emailed when they hit the market. Only when something new shows up. Unsubscribe anytime.</p>
+      </div>
+      <form class="lc-form lc-alerts-form" id="alr-red-bluff-real-estate" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="06bcaf6f-7e19-42f8-b6fe-9dd67bd0ec35">
+      <input type="hidden" name="subject" value="Listing alert signup — Red Bluff">
+      <input type="hidden" name="from_name" value="Luke Edmondson Real Estate">
+      <input type="hidden" name="redirect" value="false">
+      <input type="hidden" name="form-source" value="Listing Alerts — Red Bluff">
+      <input type="hidden" name="city" value="Red Bluff">
+        <input type="hidden" name="interest" value="Listing alerts">
+        <label class="lc-sr" for="alr-red-bluff-real-estate-e">Email address</label>
+        <input type="email" id="alr-red-bluff-real-estate-e" name="email" required autocomplete="email" placeholder="your@email.com">
+        <button type="submit" class="btn lc-btn-gold">Keep Me Posted</button>
+        <div class="lc-ok">&#10003; You're on the Red Bluff list.</div>
+      </form>
     </div>
   </div>
 </section>

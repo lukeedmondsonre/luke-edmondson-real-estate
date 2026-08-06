@@ -68,6 +68,65 @@
   </div>
 </section>
 
+
+<!-- ======== LEAD CAPTURE: MICRO-COMMITMENT LADDER ======== -->
+<section class="lc-wrap">
+  <div class="container">
+    <div class="lc-card lc-ladder">
+      <div class="lc-prog"><i></i></div>
+      <form class="lc-form" id="lad-magalia-realtor" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="06bcaf6f-7e19-42f8-b6fe-9dd67bd0ec35">
+      <input type="hidden" name="subject" value="Guided form lead — Magalia">
+      <input type="hidden" name="from_name" value="Luke Edmondson Real Estate">
+      <input type="hidden" name="redirect" value="false">
+      <input type="hidden" name="form-source" value="Guided Form — Magalia">
+      <input type="hidden" name="city" value="Magalia">
+        <input type="hidden" name="interest" value="">
+        <input type="hidden" name="timeline" value="">
+
+        <div class="lc-step lc-on" data-step="1">
+          <h3>What brings you to Magalia?</h3>
+          <div class="lc-pills">
+            <button type="button" class="lc-pill" data-field="interest" data-value="Buying">Looking to buy</button>
+            <button type="button" class="lc-pill" data-field="interest" data-value="Selling">Thinking of selling</button>
+            <button type="button" class="lc-pill" data-field="interest" data-value="Researching">Just researching</button>
+          </div>
+          <p class="lc-micro lc-left">One tap. Nothing to fill out yet.</p>
+        </div>
+
+        <div class="lc-step" data-step="2">
+          <h3>What's your timeline?</h3>
+          <div class="lc-pills">
+            <button type="button" class="lc-pill" data-field="timeline" data-value="Next 30 days">Next 30 days</button>
+            <button type="button" class="lc-pill" data-field="timeline" data-value="2-6 months">2&ndash;6 months</button>
+            <button type="button" class="lc-pill" data-field="timeline" data-value="Just watching">Just watching</button>
+          </div>
+          <button type="button" class="lc-back">&larr; Back</button>
+        </div>
+
+        <div class="lc-step" data-step="3">
+          <h3>Where do I send what I find?</h3>
+          <p class="lc-sub">I'll send Magalia listings that match what you picked, plus a note on what's actually moving out there.</p>
+          <div class="lc-row">
+            <div class="lc-fg"><label for="lad-magalia-realtor-n">First name</label>
+              <input type="text" id="lad-magalia-realtor-n" name="name" required autocomplete="given-name" placeholder="First name"></div>
+            <div class="lc-fg"><label for="lad-magalia-realtor-e">Email</label>
+              <input type="email" id="lad-magalia-realtor-e" name="email" required autocomplete="email" placeholder="your@email.com"></div>
+          </div>
+          <div class="lc-fg"><label for="lad-magalia-realtor-p">Phone <span class="lc-opt">(optional)</span></label>
+            <input type="tel" id="lad-magalia-realtor-p" name="phone" autocomplete="tel" placeholder="(530) 000-0000"></div>
+          <button type="submit" class="btn btn-red lc-btn">Send It Over</button>
+          <p class="lc-micro">Add a phone number only if you'd rather Luke call.</p>
+          <p class="lc-consent">By submitting, you consent to being contacted by Luke Edmondson at Keller Williams Realty by phone, text, or email at the information provided. Consent is not a condition of service. Message and data rates may apply. <a href="privacy-policy.html">Privacy Policy</a>.</p>
+          <button type="button" class="lc-back">&larr; Back</button>
+        </div>
+
+        <div class="lc-ok">&#10003; Done — Luke has what he needs and will follow up by email.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
     <div class="area-detail-grid">
@@ -120,6 +179,37 @@
 </section>
 
 <!-- ======== RELATED ARTICLES ======== -->
+
+<!-- ======== LEAD CAPTURE: QUESTION BOX ======== -->
+<section class="lc-wrap">
+  <div class="container">
+    <div class="lc-card lc-ask">
+      <h3>Have a question about Magalia?</h3>
+      <p class="lc-sub">Ask me anything — what's actually on the market, pricing, timing, financing. I answer these personally, and you'll get a real answer, not a pitch.</p>
+      <form class="lc-form" id="ask-magalia-realtor" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="06bcaf6f-7e19-42f8-b6fe-9dd67bd0ec35">
+      <input type="hidden" name="subject" value="Website question — Magalia">
+      <input type="hidden" name="from_name" value="Luke Edmondson Real Estate">
+      <input type="hidden" name="redirect" value="false">
+      <input type="hidden" name="form-source" value="Question Box — Magalia">
+      <input type="hidden" name="city" value="Magalia">
+        <div class="lc-fg">
+          <label for="ask-magalia-realtor-q">Your question</label>
+          <textarea id="ask-magalia-realtor-q" name="message" rows="3" required placeholder="e.g. What's available in Magalia right now under $400k?"></textarea>
+        </div>
+        <div class="lc-fg">
+          <label for="ask-magalia-realtor-e">Where should I send the answer?</label>
+          <input type="email" id="ask-magalia-realtor-e" name="email" required autocomplete="email" placeholder="your@email.com">
+        </div>
+        <button type="submit" class="btn btn-red lc-btn">Send My Question</button>
+        <p class="lc-micro">No phone number required — I'll reply by email.</p>
+        <p class="lc-consent">By submitting, you consent to being contacted by Luke Edmondson at Keller Williams Realty by phone, text, or email at the information provided. Consent is not a condition of service. Message and data rates may apply. <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        <div class="lc-ok">&#10003; Got it — your question is in Luke's hands and he'll reply to that address.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section class="section" style="background:#0a0805;padding-top:4rem;padding-bottom:4rem;">
   <div class="container">
     <div class="section-header fade-up">
@@ -148,6 +238,32 @@
       <a href="areas.html#durham" class="other-area-link">Durham</a>
       <a href="areas.html#gridley" class="other-area-link">Gridley</a>
       <a href="areas.html" class="other-area-link">View All 17 &rarr;</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======== LEAD CAPTURE: LISTING ALERTS ======== -->
+<section class="lc-alerts-band">
+  <div class="container">
+    <div class="lc-alerts-inner">
+      <div class="lc-alerts-copy">
+        <h3>Not ready to talk yet?</h3>
+        <p>Get new Magalia listings emailed when they hit the market. Only when something new shows up. Unsubscribe anytime.</p>
+      </div>
+      <form class="lc-form lc-alerts-form" id="alr-magalia-realtor" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="06bcaf6f-7e19-42f8-b6fe-9dd67bd0ec35">
+      <input type="hidden" name="subject" value="Listing alert signup — Magalia">
+      <input type="hidden" name="from_name" value="Luke Edmondson Real Estate">
+      <input type="hidden" name="redirect" value="false">
+      <input type="hidden" name="form-source" value="Listing Alerts — Magalia">
+      <input type="hidden" name="city" value="Magalia">
+        <input type="hidden" name="interest" value="Listing alerts">
+        <label class="lc-sr" for="alr-magalia-realtor-e">Email address</label>
+        <input type="email" id="alr-magalia-realtor-e" name="email" required autocomplete="email" placeholder="your@email.com">
+        <button type="submit" class="btn lc-btn-gold">Keep Me Posted</button>
+        <div class="lc-ok">&#10003; You're on the Magalia list.</div>
+      </form>
     </div>
   </div>
 </section>
