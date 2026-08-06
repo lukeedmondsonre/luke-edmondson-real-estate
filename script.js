@@ -143,28 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ============ MINI HERO FORM → CONTACT PAGE ============
-  const miniForm = document.getElementById('mini-form');
-  if (miniForm) {
-    miniForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const n = miniForm.querySelector('[name="name"]')?.value || '';
-      const p = miniForm.querySelector('[name="phone"]')?.value || '';
-      const int = miniForm.querySelector('[name="interest"]')?.value || '';
-      window.location.href = `contact.html?name=${encodeURIComponent(n)}&phone=${encodeURIComponent(p)}&interest=${encodeURIComponent(int)}`;
-    });
-  }
-
-  // ============ PREFILL CONTACT FROM URL PARAMS ============
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('name') && document.getElementById('contact-form')) {
-    const f = document.getElementById('contact-form');
-    if (f.querySelector('[name="name"]')) f.querySelector('[name="name"]').value = params.get('name');
-    if (f.querySelector('[name="phone"]')) f.querySelector('[name="phone"]').value = params.get('phone') || '';
-    const sel = f.querySelector('[name="interest"]');
-    if (sel && params.get('interest')) sel.value = params.get('interest');
-  }
-
   // ============ ACTIVE NAV LINK ============
   const page = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
