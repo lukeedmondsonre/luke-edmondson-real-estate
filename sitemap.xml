@@ -261,4 +261,14 @@
     <loc>https://lukeedmondsonrealestate.com/chico-investment-property-guide.html</loc>
     <changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://lukeedmondsonrealestate.com/chico-home-selling-guide-2026.html</loc>
+    <changefreq>weekly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-20</lastmod>
+  </url>
+  <url>
+    <loc>https://lukeedmondsonrealestate.com/paradise-market-update-2026.html</loc>
+    <changefreq>weekly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-30</lastmod>
+  </url>
 </urlset>
