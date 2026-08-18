@@ -276,4 +276,15 @@
     <changefreq>weekly</changefreq><priority>0.8</priority>
     <lastmod>2026-08-13</lastmod>
   </url>
+  <url>
+    <loc>https://lukeedmondsonrealestate.com/blog.html</loc>
+    <changefreq>weekly</changefreq><priority>0.9</priority>
+    <lastmod>2026-08-18</lastmod>
+  </url>
+  <url>
+    <loc>https://lukeedmondsonrealestate.com/faq.html</loc>
+    <changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-08-18</lastmod>
+  </url>
+
 </urlset>
