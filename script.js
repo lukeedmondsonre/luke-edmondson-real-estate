@@ -144,9 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============ ACTIVE NAV LINK ============
-  const page = window.location.pathname.split('/').pop() || 'index.html';
+  const page = (window.location.pathname.split('/').pop() || '').replace(/\.html$/, '').replace(/^index$/, '');
   document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
-    if (a.getAttribute('href') === page) a.style.color = '#C8102E';
+    const href = (a.getAttribute('href') || '').replace(/\.html$/, '').replace(/^(\/|index)$/, '');
+    if (href === page && !a.classList.contains('nav-cta')) a.style.color = '#C8102E';
   });
 
   // ============ SMOOTH SCROLL FOR ANCHOR LINKS ============
@@ -155,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(a.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.scrollY - 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - 24;
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
