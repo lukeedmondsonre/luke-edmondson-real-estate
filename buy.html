@@ -329,9 +329,9 @@
         <span class="label" style="color:rgba(255,255,255,0.5);">Estimated Monthly Payment</span>
         <div class="monthly-payment" id="monthly-total">$2,047</div>
         <div class="calc-breakdown">
-          <div class="calc-row"><strong>Principal &amp; Interest</strong><span id="pi">$1,848/mo</span></div>
-          <div class="calc-row"><strong>Property Tax (est.)</strong><span id="tax-mo">$321/mo</span></div>
-          <div class="calc-row"><strong>Homeowners Insurance</strong><span id="ins-mo">$100/mo</span></div>
+          <div class="calc-row"><strong>Principal &amp; Interest</strong><span id="pi">$1,848 per month</span></div>
+          <div class="calc-row"><strong>Property Tax (est.)</strong><span id="tax-mo">$321 per month</span></div>
+          <div class="calc-row"><strong>Homeowners Insurance</strong><span id="ins-mo">$100 per month</span></div>
           <div class="calc-row"><strong>Loan Amount</strong><span id="loan-amt">$280,000</span></div>
           <div class="calc-row"><strong>Down Payment</strong><span id="down-amt">$70,000 (20%)</span></div>
         </div>
@@ -498,9 +498,9 @@ function calcMortgage() {
   const total = pi + taxMo + insMo;
   const fmt = v => '$' + Math.round(v).toLocaleString();
   document.getElementById('monthly-total').textContent = fmt(total);
-  document.getElementById('pi').textContent = fmt(pi) + '/mo';
-  document.getElementById('tax-mo').textContent = fmt(taxMo) + '/mo';
-  document.getElementById('ins-mo').textContent = fmt(insMo) + '/mo';
+  document.getElementById('pi').textContent = fmt(pi) + ' per month';
+  document.getElementById('tax-mo').textContent = fmt(taxMo) + ' per month';
+  document.getElementById('ins-mo').textContent = fmt(insMo) + ' per month';
   document.getElementById('loan-amt').textContent = fmt(loan);
   document.getElementById('down-amt').textContent = fmt(down) + ' (' + Math.round(downPct) + '%)';
 }
