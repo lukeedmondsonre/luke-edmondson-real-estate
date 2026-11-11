@@ -47,7 +47,7 @@
       "url": "https://lukeedmondsonrealestate.com",
       "telephone": "+15309664921",
       "email": "lukeedmondson@kw.com",
-      "address": { "@type": "PostalAddress", "addressLocality": "Chico", "addressRegion": "CA", "addressCountry": "US" },
+      "address": { "@type": "PostalAddress", "streetAddress": "2080 East 20th Street, Suite 170", "addressLocality": "Chico", "addressRegion": "CA", "postalCode": "95928", "addressCountry": "US" },
       "areaServed": { "@type": "City", "name": "Orland", "containedInPlace": { "@type": "State", "name": "California" } },
       "description": "Luke Edmondson is one of Northern California's top-producing Keller Williams agents, serving Orland, Glenn County, and 17 communities across NorCal.",
       "image": "https://lukeedmondsonrealestate.com/images/headshot.png",
@@ -93,6 +93,7 @@
     .blog-author-text p { color: rgba(239,230,213,0.55); font-size: 0.85rem; line-height: 1.6; margin: 0; }
     @media(max-width:600px) { .stat-row { grid-template-columns: 1fr; } }
   </style>
+<style>.float-text{display:none;position:fixed;bottom:5.4rem;right:1.5rem;width:52px;height:52px;background:#C4A035;color:#0F0C08;border-radius:50%;align-items:center;justify-content:center;font-size:1.15rem;z-index:950;box-shadow:0 4px 24px rgba(196,160,53,.35);text-decoration:none}@media(max-width:768px){.float-text{display:flex}}</style>
 </head>
 <body>
 <nav id="main-nav">
@@ -417,10 +418,12 @@
     </p>
 </footer>
 <a href="tel:5309664921" class="float-call"><i class="fas fa-phone"></i></a>
+<a href="sms:+15309664921" class="float-text" aria-label="Text Luke Edmondson"><i class="fas fa-comment-dots"></i></a>
 <div class="sticky-bar">
   <p>Interested in homes in <strong>Orland, CA?</strong></p>
   <div class="sticky-bar-actions">
     <a href="tel:5309664921" class="btn btn-red"><i class="fas fa-phone" style="margin-right:6px;"></i>Call Now</a>
+    <a href="sms:+15309664921" class="btn btn-outline"><i class="fas fa-comment-dots" style="margin-right:6px;"></i>Text Luke</a>
     <a href="contact" class="btn btn-outline">Send Message</a>
   </div>
 </div>
