@@ -89,6 +89,7 @@
     ]
   }
   </script>
+<style>.float-text{display:none;position:fixed;bottom:5.4rem;right:1.5rem;width:52px;height:52px;background:#C4A035;color:#0F0C08;border-radius:50%;align-items:center;justify-content:center;font-size:1.15rem;z-index:950;box-shadow:0 4px 24px rgba(196,160,53,.35);text-decoration:none}@media(max-width:768px){.float-text{display:flex}}</style>
 </head>
 <body>
 <nav id="main-nav">
@@ -299,8 +300,14 @@
           <input type="number" id="home-price" value="350000" min="50000" max="5000000" step="5000">
         </div>
         <div class="form-group">
-          <label>Down Payment (%)</label>
-          <input type="number" id="down-pct" value="20" min="3" max="100" step="1">
+          <label for="down-dollars">Down Payment ($ or %)</label>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <span style="color:var(--stone);">$</span>
+            <input type="number" id="down-dollars" value="70000" min="0" step="1000" aria-label="Down payment in dollars" style="flex:2;">
+            <input type="number" id="down-pct" value="20" min="0" max="100" step="0.5" aria-label="Down payment percent" style="flex:1;">
+            <span style="color:var(--stone);">%</span>
+          </div>
+          <p style="font-size:0.72rem;color:var(--stone);margin:6px 0 0;">Type a dollar amount or a percentage; the other updates for you.</p>
         </div>
         <div class="form-group">
           <label>Interest Rate (%)</label>
@@ -327,9 +334,9 @@
       </div>
       <div class="calc-result">
         <span class="label" style="color:rgba(255,255,255,0.5);">Estimated Monthly Payment</span>
-        <div class="monthly-payment" id="monthly-total">$2,047</div>
+        <div class="monthly-payment" id="monthly-total">$2,284</div>
         <div class="calc-breakdown">
-          <div class="calc-row"><strong>Principal &amp; Interest</strong><span id="pi">$1,848 per month</span></div>
+          <div class="calc-row"><strong>Principal &amp; Interest</strong><span id="pi">$1,863 per month</span></div>
           <div class="calc-row"><strong>Property Tax (est.)</strong><span id="tax-mo">$321 per month</span></div>
           <div class="calc-row"><strong>Homeowners Insurance</strong><span id="ins-mo">$100 per month</span></div>
           <div class="calc-row"><strong>Loan Amount</strong><span id="loan-amt">$280,000</span></div>
@@ -422,7 +429,7 @@
   <div class="footer-bottom">
     <p class="footer-kw-disclaimer">Each Keller Williams Realty Office is Independently Owned and Operated &nbsp;&middot;&nbsp; Keller Williams Realty</p>
     <p>&copy; 2026 Luke Edmondson Real Estate | Keller Williams Realty. All Rights Reserved.</p>
-    <p>DRE# 02081864 &nbsp;|&nbsp; Chico, CA</p>
+    <p>DRE# 02081864 &nbsp;|&nbsp; 2080 East 20th Street, Suite 170, Chico, CA 95928</p>
     <p class="footer-data-disclaimer" style="font-size:0.72rem;color:var(--stone,#8A7B6A);margin-top:10px;line-height:1.5;max-width:900px;margin-left:auto;margin-right:auto;text-align:center;"><strong>Data Disclaimer:</strong> Market statistics, pricing information, and other data on this page are sourced from third-party platforms including Redfin and other public databases, and are provided for general reference only. Luke Edmondson and Keller Williams Realty make no representations or warranties, express or implied, as to the accuracy, completeness, or timeliness of any information presented. All data should be independently verified prior to making any real estate, financial, or legal decisions. Market conditions change frequently and information may not reflect current conditions. Luke Edmondson shall not be liable for any errors, omissions, or decisions made in reliance on the information presented herein.</p>
   </div>
     <p style="text-align:center;margin-top:14px;font-size:0.75rem;color:var(--stone,#8A7B6A);line-height:2.2;">
@@ -437,10 +444,12 @@
 </footer>
 
 <a href="tel:5309664921" class="float-call" aria-label="Call Luke"><i class="fas fa-phone"></i></a>
+<a href="sms:+15309664921" class="float-text" aria-label="Text Luke Edmondson"><i class="fas fa-comment-dots"></i></a>
 <div class="sticky-bar">
   <p>Ready to find your home in <strong>Northern California?</strong></p>
   <div class="sticky-bar-actions">
     <a href="tel:5309664921" class="btn btn-red"><i class="fas fa-phone" style="margin-right:6px;"></i>Call Now</a>
+    <a href="sms:+15309664921" class="btn btn-outline"><i class="fas fa-comment-dots" style="margin-right:6px;"></i>Text Luke</a>
     <a href="contact" class="btn btn-outline">Message Luke</a>
   </div>
 </div>
@@ -451,7 +460,8 @@ const EMAILJS_PUBLIC_KEY   = 'wvP0FgYadImUFqRGV';
 const EMAILJS_SERVICE_ID   = 'service_tkzqs5e';
 const EMAILJS_TEMPLATE_NOTIFY = 'template_9f1qmgx';
 const EMAILJS_TEMPLATE_GUIDE  = 'template_hywu89s';
-emailjs.init(EMAILJS_PUBLIC_KEY);
+// Guard: if the EmailJS script is blocked or slow to load, keep the rest of the page (mortgage calculator, FAQ) working.
+if (window.emailjs) { emailjs.init(EMAILJS_PUBLIC_KEY); }
 const guideForm = document.getElementById('guide-form');
 if (guideForm) {
   guideForm.addEventListener('submit', async function(e) {
@@ -471,6 +481,7 @@ if (guideForm) {
       timeline:   guideForm.querySelector('[name="timeline"]').value,
     };
     try {
+      if (!window.emailjs) throw new Error('EmailJS not loaded');
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_NOTIFY, params);
       if (params.from_email) { await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_GUIDE, params); }
       successEl.style.display = 'block'; guideForm.reset();
@@ -481,14 +492,26 @@ if (guideForm) {
     }
   });
 }
+let downMode = 'pct';
 function calcMortgage() {
   const price = parseFloat(document.getElementById('home-price').value) || 0;
-  const downPct = parseFloat(document.getElementById('down-pct').value) || 20;
+  const pctEl = document.getElementById('down-pct');
+  const dolEl = document.getElementById('down-dollars');
+  let downPct, down;
+  if (downMode === 'dollars') {
+    down = Math.min(Math.max(parseFloat(dolEl.value) || 0, 0), price);
+    downPct = price > 0 ? (down / price) * 100 : 0;
+    if (document.activeElement !== pctEl) pctEl.value = Math.round(downPct * 10) / 10;
+  } else {
+    const p = parseFloat(pctEl.value);
+    downPct = isNaN(p) ? 20 : Math.min(Math.max(p, 0), 100);
+    down = price * (downPct / 100);
+    if (document.activeElement !== dolEl) dolEl.value = Math.round(down);
+  }
   const rate = parseFloat(document.getElementById('interest').value) || 7;
   const years = parseInt(document.getElementById('term').value) || 30;
   const taxRate = parseFloat(document.getElementById('tax').value) || 1.1;
   const ins = parseFloat(document.getElementById('insurance').value) || 1200;
-  const down = price * (downPct / 100);
   const loan = price - down;
   const mo = rate / 100 / 12;
   const n = years * 12;
@@ -502,7 +525,7 @@ function calcMortgage() {
   document.getElementById('tax-mo').textContent = fmt(taxMo) + ' per month';
   document.getElementById('ins-mo').textContent = fmt(insMo) + ' per month';
   document.getElementById('loan-amt').textContent = fmt(loan);
-  document.getElementById('down-amt').textContent = fmt(down) + ' (' + Math.round(downPct) + '%)';
+  document.getElementById('down-amt').textContent = fmt(down) + ' (' + (Math.round(downPct * 10) / 10) + '%)';
 }
 function toggleFaq(btn) {
   const ans = btn.nextElementSibling;
@@ -512,7 +535,9 @@ function toggleFaq(btn) {
   icon.style.transform = isOpen ? 'rotate(0deg)' : '';
 }
 calcMortgage();
-['home-price','down-pct','interest','term','tax','insurance'].forEach(id => {
+document.getElementById('down-dollars')?.addEventListener('input', () => { downMode = 'dollars'; });
+document.getElementById('down-pct')?.addEventListener('input', () => { downMode = 'pct'; });
+['home-price','down-dollars','down-pct','interest','term','tax','insurance'].forEach(id => {
   document.getElementById(id)?.addEventListener('input', calcMortgage);
 });
 </script>
